@@ -1,0 +1,28 @@
+stages:
+  - test
+  - build
+  - deploy
+​
+test project:
+  stage: test
+  image: node:latest
+  script:
+    - npm install
+    - npm test
+  
+build project:
+  stage: build
+  image: node:latest
+  script:
+    - npm install
+    - "BUILD_ENV=production npm run build || exit 1"
+  artifacts:
+    paths:
+      - build/
+      
+deploy project:
+  stage: deploy 
+  image: node:latest
+  script:
+    - npm install -g netlify-cli
+    - netlify deploy --dir=build --prod
