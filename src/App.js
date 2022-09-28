@@ -12,9 +12,6 @@ import Contact from "./component/Contact.js";
 import Covid from "./component/Piechart/Covid";
 import Download from "./Dchart.js"
 
-
-
-
 function App() {
   return (
     <div className="App">
