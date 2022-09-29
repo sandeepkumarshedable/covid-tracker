@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { fetchDailyData } from "../../api";
 // import Chart from "react-apexcharts";
@@ -10,13 +9,15 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
 
   useEffect(() => {
     (async () => {
-      const data = await fetchDailyData();
-     
-      setDailyData(data);
+      try {
+        const data = await fetchDailyData();
+
+        setDailyData(data);
+      } catch (error) {}
     })();
   }, []);
 
-  console.log("dd",dailyData);
+  console.log("dd", dailyData);
 
   const lineChart = dailyData?.data?.length ? (
     <Line
@@ -40,7 +41,7 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
     />
   ) : null;
 
-  const donutChart = confirmed?(
+  const donutChart = confirmed ? (
     <Doughnut
       data={{
         labels: ["Infected", "Recovered", "Deaths"],
@@ -56,17 +57,12 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
           },
         ],
       }}
-      
     />
   ) : null;
 
   return (
-    <div className={styles.container}>
-            {country ? donutChart : lineChart}
-        </div>
-    
+    <div className={styles.container}>{country ? donutChart : lineChart}</div>
   );
 };
 
 export default Charts;
-

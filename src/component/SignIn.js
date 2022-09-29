@@ -78,7 +78,7 @@ export default function SignIn() {
     let password = data.password;
 
     console.log(email, password);
-    fetch("http://localhost:5065/signin", {
+    fetch("http://localhost:5055/signin", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -94,12 +94,15 @@ export default function SignIn() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userRegister");
+        let token = data.token;
+        if(token!=null)
+        localStorage.setItem("token", token)
         alert(data.message);
         if(data.message=="Signed in successfully")
         navigate('/covid');
       });
   };
-
+ 
   const classes = useStyles();
 
   return (
@@ -174,5 +177,5 @@ export default function SignIn() {
         </div>
       </Grid>
     </Grid>
-  );
+  );                                                                                
 }

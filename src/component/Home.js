@@ -50,6 +50,7 @@ class Home extends React.Component {
         <p>
           We stand with everyone standing in the frontier and fighting against the COVID-19 pandemic.{" "}
         </p>
+        <p> This website is developed by @AnkitAhuja @Sandeepkumar @SiddharthRaju </p>
         </div>
        
       </div>

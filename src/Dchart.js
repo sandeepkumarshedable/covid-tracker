@@ -15,11 +15,11 @@ class Download extends React.Component {
     }
     handleCountryChange = async (country) => {
         const fetchedData = await fetchData(country);
-        this.setState({ data: fetchedData, country: country });
+        this.setState({ data: fetchedData?.data, country: country });
     };
     render() {
         const { data, country } = this.state;
-        console.log("cc",data.data)
+        console.log("cc",data);
         return (
             <div className={styles.container}>
                 

@@ -52,7 +52,8 @@ const Header = () => {
                 <Tab label="Contact Us" href="contact" />
                 
               </Tabs>
-              
+              {/* if(localStorage.getItem("token")!==null){
+              console.log("token generated")} */}
               <Button sx={{ marginLeft: "auto" }} variant="contained">
                 <Link
                   to="/signin"
@@ -70,16 +71,15 @@ const Header = () => {
                   style={{ textDecoration: "none" , color:"white"}}
                 >
                   SignUp
-                  
                 </Link>
               </Button>
               {/* <Button sx={{ marginLeft: "10px" }} variant="contained">
                 <Link
-                  to="/download"
+                  to="/logout"
                   className={classNames.Link}
                   style={{ textDecoration: "none" , color:"white"}}
                 >
-                  Charts
+                  Logout
                   
                 </Link>
               </Button> */}

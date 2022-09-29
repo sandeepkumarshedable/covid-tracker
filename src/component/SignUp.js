@@ -79,7 +79,7 @@ export default function SignUp() {
      let password=data.password;
 
     console.log(Name,email, password);
-    fetch("http://localhost:5000/signup", {
+    fetch("http://localhost:5050/signup", {
       method: "POST",
       crossDomain: true,
       headers: {

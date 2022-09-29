@@ -17,11 +17,14 @@ class Covid extends Component {
     allCountryTotal: 0,
     selectedCountries: [],
   };
-
+ 
   url =
     "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/web-data/data/cases_country.csv";
   async componentDidMount() {
+    try {
     const response = await axios.get(this.url);
+    console.log("response",response)
+    
     const rows = response.data.split("\n");
     const countries = [];
     let allCountryTotal = 0;
@@ -41,6 +44,9 @@ class Covid extends Component {
     //   setTimeout(x, 1000);
     // });
     this.setState({ countries, allCountryTotal });
+  } catch (error) {
+      
+  }
   }
   handleOnRowSelected = (countryToUpdate) => {
     const countries = [...this.state.countries];
@@ -119,7 +125,7 @@ class Covid extends Component {
    
     return (
       <div >
-        <h1 style={{ textAlign: "center",backgroundColor: "beige", marginTop:"65px" }}>
+        <h1 style={{ textAlign: "center",backgroundColor: "beige", marginTop:"45px" }}>
           Wordwide Count: {this.numberWithCommas(allCountryTotal)}
         </h1>
         {allCountryTotal === 0 ? (
