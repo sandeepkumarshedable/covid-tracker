@@ -60,7 +60,7 @@ const Header = () => {
                   className={classNames.Link}
                   style={{ textDecoration: "none" , color:"white"}}
                 >
-                  SignIn
+                  Sign In
                  
                 </Link>
               </Button>
@@ -70,7 +70,7 @@ const Header = () => {
                   className={classNames.Link}
                   style={{ textDecoration: "none" , color:"white"}}
                 >
-                  SignUp
+                  Sign Up
                 </Link>
               </Button>
               {/* <Button sx={{ marginLeft: "10px" }} variant="contained">
